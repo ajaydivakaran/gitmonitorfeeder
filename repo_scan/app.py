@@ -1,7 +1,7 @@
 from git import Repo
 
-from cache import CacheManager
-from config import get_config
+from repo_scan.cache import CacheManager
+from repo_scan.config import get_config
 
 config = get_config()
 

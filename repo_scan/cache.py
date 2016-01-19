@@ -4,7 +4,7 @@ import os
 class CacheManager:
     def __init__(self, cache_path, config, branch_name):
         self.cache_path = cache_path
-        self.config = config
+        self.repo_config = config
         self.branch_name = branch_name
 
     def get_commit_sha_for_branch(self):
@@ -21,6 +21,6 @@ class CacheManager:
             file.write(commit_sha)
 
     def _get_cache_file_path(self):
-        cache_key = "%s-%s" % (self.config['friendlyName'], self.branch_name)
+        cache_key = "%s-%s" % (self.repo_config['friendlyName'], self.branch_name)
         cache_file_path = os.path.join(self.cache_path, cache_key)
         return cache_file_path
