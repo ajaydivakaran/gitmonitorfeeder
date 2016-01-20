@@ -13,6 +13,8 @@ def _read_commits_from_repository(repo_config):
         print("'%s' is not a valid Git repository" % repo_config['repoPath'])
         return
 
+    _pull_from_remote(repo, repo_config)
+
     for branch_name in repo_config['branches']:
 
         if branch_name not in repo.branches:
@@ -42,6 +44,13 @@ def _read_commits_from_repository(repo_config):
 
         if latest_commit_sha:
             cache_manager.write_commit_sha_for_branch(latest_commit_sha)
+
+
+def _pull_from_remote(repo, repo_config):
+    try:
+        repo.remotes.origin.pull()
+    except AttributeError:
+        print("Repo '%s' has no remote origin" % (repo_config['friendlyName']))
 
 
 def _scan_repositories():
