@@ -1,9 +1,9 @@
 {
-  "cachePath": "/tmp",
+  "cachePath": "/tmp/cache",
   "repos": [
     {
       "friendlyName": "TestRepo",
-      "repoPath": "/home/ajay/learn/dummyrepo",
+      "repoPath": "/tmp/dummyrepo",
       "branches": ["master"]
     }
   ]
