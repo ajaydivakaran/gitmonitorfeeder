@@ -6,5 +6,6 @@
       "repoPath": "/tmp/dummyrepo",
       "branches": ["master"]
     }
-  ]
+  ],
+  "elasticSearchUrl": "http://elasticsearch"
 }
