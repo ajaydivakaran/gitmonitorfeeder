@@ -1,3 +1,4 @@
+import sys
 from git import Repo
 
 from repo_scan.cache import CacheManager

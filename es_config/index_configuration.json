@@ -1,0 +1,58 @@
+{
+  "settings" : {
+     "index" : {
+        "number_of_shards" : 2,
+        "number_of_replicas" : 1
+     }
+  },
+  "mappings" : {
+    "commit": {
+      "properties": {
+        "message": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "sha": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "author": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "authordate": {
+          "type": "date",
+          "format": "epoch_second"
+        },
+        "committer": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "commitdate": {
+          "type": "date",
+          "format": "epoch_second"
+        }
+      }
+    }
+  }
+}
