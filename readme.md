@@ -9,17 +9,17 @@ Refer: [docker-hub](https://hub.docker.com/r/ajaydivakaran/gitmonitorfeeder/)
 
 ``` javascript
 {
-"cachePath": "/tmp/cache",
-"batchSize": 10,
-"indexName": "repo_commits",
-"repos": [
-{
-"friendlyName": "myRepo",
-"repoPath": "/tmp/myrepo",
-"branches": ["master"],
-"contributors": ["Member1", "Member2", "Member3"]
-}
-],
-"esUrl": "http://elasticsearch:9200"
+  "cachePath": "/tmp/cache",
+  "batchSize": 10,
+  "indexName": "repo_commits",
+  "repos": [
+     {
+        "friendlyName": "myRepo",
+        "repoPath": "/tmp/myrepo",
+        "branches": ["master"],
+        "contributors": ["Member1", "Member2", "Member3"]
+     }
+  ],
+  "esUrl": "http://elasticsearch:9200"
 }
 ```
