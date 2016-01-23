@@ -1,11 +1,14 @@
 {
   "cachePath": "/tmp/cache",
+  "batchSize": 10,
+  "indexName": "repo_commits",
   "repos": [
     {
       "friendlyName": "TestRepo",
       "repoPath": "/tmp/dummyrepo",
-      "branches": ["master"]
+      "branches": ["master"],
+      "contributors": ["Member1", "Member2", "Member3", "Member4"]
     }
   ],
-  "elasticSearchUrl": "http://elasticsearch"
+  "esUrl": "http://localhost:9200"
 }

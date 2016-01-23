@@ -1,6 +1,7 @@
 import sys
 from git import Repo
 
+from repo_index.index import CommitSyncer
 from repo_scan.cache import CacheManager
 from repo_scan.config import get_config
 
@@ -24,6 +25,7 @@ def _read_commits_from_repository(repo_config):
 
         print("Commits in branch: %s" % branch_name)
         cache_manager = CacheManager(config['cachePath'], repo_config, branch_name)
+        commit_syncer = CommitSyncer(repo_config, branch_name)
         latest_commit_sha = None
         for index, commit in enumerate(repo.iter_commits(branch_name)):
 
@@ -40,9 +42,10 @@ def _read_commits_from_repository(repo_config):
             print("Author Date: %s" % commit.authored_date)
             print("Committer: %s" % commit.committer)
             print("Commit Date: %s" % commit.committed_date)
-            print("Count: %s" % commit.count())
             print("-------------------")
+            commit_syncer.sync_commit(commit)
 
+        commit_syncer.flush()
         if latest_commit_sha:
             cache_manager.write_commit_sha_for_branch(latest_commit_sha)
 
