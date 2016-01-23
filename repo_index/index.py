@@ -65,7 +65,3 @@ class CommitSyncer():
     def _identify_pairs(self, commit_message):
         return [contributor for contributor in self.repo_config['contributors'] if
                 contributor.lower() in commit_message.lower()]
-
-
-if __name__ == '__main__':
-    create_index()

@@ -7,4 +7,4 @@ COPY repo_scan workspace/repo_scan
 COPY repo_index workspace/repo_index
 COPY start.sh workspace/
 WORKDIR /workspace
-CMD ["./start.sh"]
+ENTRYPOINT ["./start.sh"]

@@ -1,1 +1,2 @@
-docker run -v ${PWD}/configs:/workspace/configs -v ${pwd}/my_cache:/tmp/cache -v /home/ajay/learn/dummyrepo:/tmp/dummyrepo -it cron_job
+docker run -it --net=gitrepomonitor -v ${PWD}/my_cache:/tmp/cache -v /home/ajay/learn/dummyrepo:/tmp/dummyrepo -v ${PWD}/configs:/workspace/configs gitmon setup
+

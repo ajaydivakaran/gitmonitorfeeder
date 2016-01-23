@@ -58,14 +58,6 @@ def _pull_from_remote(repo, repo_config):
         print("Repo '%s' has no remote origin" % (repo_config['friendlyName']))
 
 
-def _scan_repositories():
+def sync_repositories():
     for repo_config in config['repos']:
         _read_commits_from_repository(repo_config)
-
-
-def main():
-    _scan_repositories()
-
-
-if __name__ == '__main__':
-    main()

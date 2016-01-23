@@ -5,10 +5,10 @@
   "repos": [
     {
       "friendlyName": "DummyRepo",
-      "repoPath": "/home/ajay/learn/dummyrepo",
+      "repoPath": "/tmp/dummyrepo",
       "branches": ["master"],
       "contributors": ["Member1", "Member2", "Member3"]
     }
   ],
-  "esUrl": "http://localhost:9200"
+  "esUrl": "http://elasticsearch:9200"
 }
