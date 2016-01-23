@@ -46,6 +46,8 @@ def _read_commits_from_repository(repo_config):
             commit_syncer.sync_commit(commit)
 
         commit_syncer.flush()
+        print("Sync of branch: '%s' in repo: '%s' is complete!" % (branch_name, repo_config['friendlyName']))
+
         if latest_commit_sha:
             cache_manager.write_commit_sha_for_branch(latest_commit_sha)
 
