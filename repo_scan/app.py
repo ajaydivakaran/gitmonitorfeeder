@@ -1,4 +1,3 @@
-import sys
 from git import Repo
 
 from repo_index.index import CommitSyncer
@@ -62,10 +61,11 @@ def _pull_from_remote(repo, repo_config):
 def _scan_repositories():
     for repo_config in config['repos']:
         _read_commits_from_repository(repo_config)
-        
+
+
 def main():
-    run_option = sys.argv[1]
     _scan_repositories()
 
-if __name__ == '__main__':    
+
+if __name__ == '__main__':
     main()

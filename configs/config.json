@@ -4,10 +4,10 @@
   "indexName": "repo_commits",
   "repos": [
     {
-      "friendlyName": "TestRepo",
-      "repoPath": "/tmp/dummyrepo",
+      "friendlyName": "DummyRepo",
+      "repoPath": "/home/ajay/learn/dummyrepo",
       "branches": ["master"],
-      "contributors": ["Member1", "Member2", "Member3", "Member4"]
+      "contributors": ["Member1", "Member2", "Member3"]
     }
   ],
   "esUrl": "http://localhost:9200"

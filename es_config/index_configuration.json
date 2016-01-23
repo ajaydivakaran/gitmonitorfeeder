@@ -53,7 +53,7 @@
             }
           }
         },
-        "author": {
+        "author_name": {
           "type": "string",
           "fields": {
             "raw": {
@@ -62,11 +62,20 @@
             }
           }
         },
-        "authordate": {
+        "author_email": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "author_date": {
           "type": "date",
           "format": "epoch_second"
         },
-        "committer": {
+        "committer_name": {
           "type": "string",
           "fields": {
             "raw": {
@@ -75,7 +84,16 @@
             }
           }
         },
-        "commitdate": {
+        "committer_email": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "commit_date": {
           "type": "date",
           "format": "epoch_second"
         }

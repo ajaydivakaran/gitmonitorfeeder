@@ -1,4 +1,6 @@
 from elasticsearch import Elasticsearch
+from elasticsearch.helpers import bulk
+
 from repo_scan.config import get_config, get_es_index_config
 
 
@@ -34,26 +36,29 @@ class CommitSyncer():
             self._flush_buffer()
 
     def flush(self):
-        if len(self.max_buffer_size) > 0:
+        if len(self.buffer) > 0:
             self._flush_buffer()
 
     def _flush_buffer(self):
-        self.es_client.bulk(index=_get_commit_index(self.config), doc_type='commit', body=self.buffer)
+        bulk(self.es_client, self.buffer, stats_only=True)
         self.buffer.clear()
 
     def _map(self, commit):
         return {
+            '_index': _get_commit_index(self.config),
+            '_type': 'commit',
             '_source': {
                 'repository': self.repo_config['friendlyName'],
                 'branch': self.repo_branch_name,
                 'message': commit.message,
                 'pairs': self._identify_pairs(commit.message),
                 'sha': commit.hexsha,
-                '_id': commit.hexsha,
-                'author': commit.author,
-                'authordate': commit.authored_date,
-                'committer': commit.committer,
-                'commitdate': commit.committed_date
+                'author_name': commit.author.name,
+                'author_email': commit.author.email,
+                'author_date': commit.authored_date,
+                'committer_name': commit.committer.name,
+                'committer_email': commit.committer.email,
+                'commit_date': commit.committed_date
             }
         }
 
