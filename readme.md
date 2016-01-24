@@ -16,7 +16,7 @@ Refer: [docker-hub](https://hub.docker.com/r/ajaydivakaran/gitmonitorfeeder/)
      {
         "friendlyName": "myRepo",
         "repoPath": "/tmp/myrepo",
-        "branches": ["master"],
+        "branches": ["master", "release-*"],
         "contributors": ["Member1", "Member2", "Member3"]
      }
   ],

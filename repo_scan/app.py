@@ -3,6 +3,7 @@ from git import Repo
 from repo_index.index import CommitSyncer
 from repo_scan.cache import CacheManager
 from repo_scan.config import get_config
+from repo_scan.repo_utils import get_matching_repo_branches
 
 config = get_config()
 
@@ -15,12 +16,13 @@ def _read_commits_from_repository(repo_config):
         return
 
     _pull_from_remote(repo, repo_config)
+    
+    matching_branches_for_repo = get_matching_repo_branches(repo_config['branches'], repo.branches)
 
-    for branch_name in repo_config['branches']:
+    if not matching_branches_for_repo:
+        print("No matching branches found in repository '%s'" % repo_config['friendlyName'])
 
-        if branch_name not in repo.branches:
-            print("branch %s does not exist!" % branch_name)
-            continue
+    for branch_name in matching_branches_for_repo:
 
         print("Commits in branch: %s" % branch_name)
         cache_manager = CacheManager(config['cachePath'], repo_config, branch_name)
