@@ -63,3 +63,7 @@ def _pull_from_remote(repo, repo_config):
 def sync_repositories():
     for repo_config in config['repos']:
         _read_commits_from_repository(repo_config)
+
+
+if __name__ == '__main__':
+    sync_repositories()
